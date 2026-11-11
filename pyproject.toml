@@ -1,0 +1,25 @@
+[project]
+name = "auto-scrum-api"
+version = "0.1.0"
+description = "Auto-Scrum backend: receives pushes from the Ascrum VS Code extension, serves commits, members and standup plans."
+requires-python = ">=3.12"
+dependencies = [
+  "fastapi>=0.115",
+  "uvicorn[standard]>=0.30",
+  "sqlalchemy>=2.0",
+  # Windows has no system time zone database for zoneinfo.
+  "tzdata",
+]
+
+[dependency-groups]
+dev = [
+    "pytest>=8",
+    "httpx2>=2.16.0",
+]
+
+[tool.uv]
+package = false
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]
